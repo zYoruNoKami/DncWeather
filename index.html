@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>DncWeather</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div id="title">
+        <h1>DncWeather</h1>
+      </div>
+      <div id="SubTitle">
+        <p>Endereços</p>
+      </div>
+      <div id="SubTitle2">
+        <p>Previsão do tempo</p>
+      </div>
+    </header>
+    <!-- text -->
+    <div id="text">
+      <h1>
+        Descubra Mais com Precisão:<br />
+        Previsões do Tempo e endereços<br />
+        em tempo real.
+      </h1>
+      <figure><img src="img/cloud.svg" alt="Erro" /></figure>
+    </div>
+    <!-- formulario -->
+    <form method="post" id="formulario">
+      <div>
+        <label for="Nome">Primeiro Nome:</label><br />
+        <input
+          type="text"
+          class="inpt"
+          name="nome"
+          placeholder="Insira seu primeiro nome:"
+          required
+        />
+      </div>
+      <div>
+        <label for="E-mail">E-mail:</label><br />
+        <input
+          type="email"
+          name="e-mail"
+          class="inpt"
+          placeholder="Insira seu e-mail:"
+          required
+        />
+      </div>
+      <div>
+        <label for="cep">Digite o CEP:</label><br />
+        <input
+          type="number"
+          name="cep"
+          class="inpt"
+          placeholder="Insira seu CEP:"
+          required
+        />
+      </div>
+      <div id="Lg">
+        <label for="latitude"
+          ><div id="textLatitude">
+            Digite a latitude e longitude para saber a previsão:
+          </div> </label
+        ><br />
+        <input
+          type="number"
+          id="latitude"
+          name="latitude"
+          class="inpt"
+          placeholder="Latitude:"
+          required
+        />
+        <input
+          type="number"
+          id="longitude"
+          class="inpt"
+          name="logitude"
+          placeholder="Logitude:"
+          required
+        />
+      </div>
+      <div>
+        <button>Acessar</button>
+      </div>
+    </form>
+    <!-- baseboard -->
+    <baseboard id="baseboard">
+      <div>
+        <h1>Resultado da busca por CEP:</h1>
+      </div>
+      <div>
+        <figure>
+          <img src="img/local.svg" alt="Erro" />
+        </figure>
+      </div>
+    </baseboard>
+    <!-- Result -->
+    <div>
+      <result id="result">
+        <p>Logradouro/nome</p>
+        <p>Bairro/Distrito</p>
+        <p>Localidade/UF</p>
+      </result>
+    </div>
+    <!-- result2 -->
+    <div>
+      <result2 id="result2">
+        <p id="jc">Justino Cobra</p>
+        <p id="vm">Vila Ema</p>
+        <p id="sp">SP</p>
+      </result2>
+    </div>
+    <!-- forecast -->
+    <div id="forecast">
+      <h1>Previsão do tempo na região:</h1>
+      <img src="img/cloud2.svg" alt="Erro" />
+    </div>
+    <!-- temperature -->
+    <div id="regiao">
+      <h1>Previsão de tempo de acordo com a região: 24° C</h1>
+    </div>
+    <!-- termos deu uso -->
+    <div id="termos">
+      <h1>Termos de Uso | Política de Privacidade</h1>
+    </div>
+  </body>
+</html>
