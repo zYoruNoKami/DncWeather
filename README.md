@@ -69,6 +69,4 @@ Além disso, o design responsivo e a estrutura semântica do HTML garantem acess
 
 Em resumo, este projeto é um exemplo eficaz de como tecnologias web modernas podem ser combinadas para criar aplicações interativas, úteis e de alta performance, proporcionando aos desenvolvedores uma compreensão prática das possibilidades e técnicas disponíveis no desenvolvimento web contemporâneo.
 
-Link do site disponibilizado:
-
-Link da planilha de registro de informação: 
+Link do site disponibilizado: https://dncweatherr.netlify.app/
