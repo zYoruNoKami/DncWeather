@@ -329,7 +329,8 @@ header {
 
   #text figure {
     margin-top: -145px;
-    margin-right: 65px;
+    margin-right: 100px;
+    padding-left: 25px;
   }
 
   img {
@@ -372,11 +373,11 @@ header {
 
   #latitude {
     display: grid;
-    max-width: 100%;
+    max-width: 90%;
   }
 
   #longitude {
-    max-width: 100%;
+    max-width: 90%;
   }
 
   #textLatitude {
@@ -386,6 +387,7 @@ header {
 
   #Lg input {
     margin-top: 0px;
+    margin-left: 10px;
   }
 
   #formulario button {
@@ -439,22 +441,19 @@ header {
 
   #result2 {
     display: flex;
-
     width: 99%;
     height: 72px;
     top: 2124px;
     left: 302px;
-    gap: 0px;
     border-radius: 0px 0px 30px 30px;
     background-color: #ffffff;
     margin-left: 2px;
   }
 
-  #result2 p {
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 24.2px;
-    margin-left: 30px;
+  #result2 input {
+    font-size: 15px;
+    max-width: 100px;
+    margin-right: 35px;
   }
 
   #forecast {
@@ -488,11 +487,17 @@ header {
   }
 
   #regiao h1 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 800;
     line-height: 24.2px;
     text-align: center;
     padding-top: 10px;
+    margin-right: 20px;
+  }
+
+  #regiao input {
+    max-width: 60px;
+    margin-top: 2.5px;
   }
 
   #termos {
