@@ -79,7 +79,6 @@ header {
   height: 700px;
   border-radius: 30px;
 }
-
 #formulario label {
   font-size: 25px;
   font-weight: 400;
@@ -94,7 +93,9 @@ header {
   margin-top: 45px;
   margin-bottom: 45px;
   background-color: #f2f2f2e5;
-  border: 1px solid #f2f2f2e5;
+  border: #f2f2f2e5;
+  font-size: 20px;
+  padding-left: 18px;
 }
 
 #formulario input:optional {
@@ -111,7 +112,7 @@ header {
   line-height: 24.2px;
 
   color: #39393980;
-  padding-left: 5px;
+  padding-left: 25px;
 }
 
 .inpt {
@@ -119,11 +120,12 @@ header {
 }
 
 #latitude {
-  max-width: 300px;
+  max-width: 275px;
 }
 
 #longitude {
-  max-width: 300px;
+  max-width: 275px;
+  margin-left: 25px;
 }
 
 #formulario button {
@@ -142,13 +144,14 @@ header {
 
   background-color: #0c70f2e5;
   box-shadow: 0px 6px 4px 0px #0c70f240;
+  cursor: pointer;
 }
 
 #baseboard {
   display: flex;
   align-items: center;
   padding-top: 350px;
-  padding-left: 26%;
+  padding-left: 25%;
 }
 
 #baseboard h1 {
@@ -169,10 +172,11 @@ header {
 }
 
 #result p {
-  font-size: 20px;
+  text-align: center;
+  font-size: 25px;
   font-weight: 800;
   line-height: 24.2px;
-  margin-left: 135px;
+  margin-left: 100px;
   color: #ffffff;
 }
 
@@ -189,20 +193,18 @@ header {
   margin-left: 25%;
 }
 
-#result2 p {
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 24.2px;
-  margin-left: 160px;
+#result2 input {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 22px;
+  margin-top: 20px;
+  margin-left: 25px;
+  text-align: center;
+  border: none;
 }
 
-#vm {
-  padding-left: 22px;
-}
-
-#sp {
-  padding-left: 50px;
-  margin-left: 0px;
+#localidade {
+  max-width: 160px;
 }
 
 #forecast {
@@ -235,11 +237,21 @@ header {
 }
 
 #regiao h1 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 800;
   line-height: 24.2px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 6px;
+  padding-left: 60px;
+}
+
+#regiao input {
+  border: none;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 24.2px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 #termos {

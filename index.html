@@ -11,6 +11,83 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>DncWeather</title>
+
+    <script>
+      async function getAddressByCep() {
+        const cep = document.getElementById("cep").value.trim();
+        if (!/^\d{8}$/.test(cep)) {
+          alert("Por favor, insira um CEP válido de 8 dígitos.");
+          return;
+        }
+
+        try {
+          const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+          if (!response.ok) {
+            throw new Error(
+              "Erro ao buscar o CEP. Por favor, tente novamente."
+            );
+          }
+
+          const data = await response.json();
+          if (data.erro) {
+            throw new Error(
+              "CEP não encontrado. Por favor, verifique o CEP digitado."
+            );
+          }
+
+          console.log(data);
+          document.getElementById("logradouro").value = data.logradouro;
+          document.getElementById("bairro").value = data.bairro;
+          document.getElementById("localidade").value = data.localidade;
+        } catch (error) {
+          alert(`Erro: ${error.message}`);
+        }
+      }
+
+      async function getAddressByforecast() {
+        const latitude = document.getElementById("latitude").value.trim();
+        const longitude = document.getElementById("longitude").value.trim();
+
+        if (!latitude || isNaN(latitude) || latitude < -90 || latitude > 90) {
+          alert("Por favor, insira uma latitude válida entre -90 e 90.");
+          return;
+        }
+        if (
+          !longitude ||
+          isNaN(longitude) ||
+          longitude < -180 ||
+          longitude > 180
+        ) {
+          alert("Por favor, insira uma longitude válida entre -180 e 180.");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+          );
+          if (!response.ok) {
+            throw new Error(
+              "Erro ao buscar a previsão do tempo. Por favor, tente novamente."
+            );
+          }
+
+          const data = await response.json();
+          console.log(data);
+
+          if (data.current_weather) {
+            document.getElementById(
+              "tempo"
+            ).value = `${data.current_weather.temperature} °C`;
+          } else {
+            document.getElementById("tempo").value =
+              "Dados do tempo não disponíveis";
+          }
+        } catch (error) {
+          alert(`Erro: ${error.message}`);
+        }
+      }
+    </script>
   </head>
   <body>
     <!-- Header -->
@@ -34,35 +111,39 @@
       </h1>
       <figure><img src="img/cloud.svg" alt="Erro" /></figure>
     </div>
-    <!-- formulario -->
+    <!-- formulario + button -->
+    <!-- Colocar de volta a função required nos formularios -->
     <form method="post" id="formulario">
       <div>
-        <label for="Nome">Primeiro Nome:</label><br />
+        <label for="nome">Primeiro Nome:</label><br />
         <input
           type="text"
           class="inpt"
-          name="nome"
+          id="nome"
+          name="name"
           placeholder="Insira seu primeiro nome:"
           required
         />
       </div>
       <div>
-        <label for="E-mail">E-mail:</label><br />
+        <label for="e-mail">E-mail:</label><br />
         <input
           type="email"
           name="e-mail"
           class="inpt"
           placeholder="Insira seu e-mail:"
+          value=""
           required
         />
       </div>
       <div>
         <label for="cep">Digite o CEP:</label><br />
         <input
-          type="number"
-          name="cep"
+          id="cep"
+          type="text"
           class="inpt"
           placeholder="Insira seu CEP:"
+          value=""
           required
         />
       </div>
@@ -85,12 +166,17 @@
           id="longitude"
           class="inpt"
           name="logitude"
-          placeholder="Logitude:"
+          placeholder="Longitude:"
           required
         />
       </div>
       <div>
-        <button>Acessar</button>
+        <button
+          type="submit"
+          onclick="getAddressByCep(cep);getAddressByforecast(tempo)"
+        >
+          Acessar
+        </button>
       </div>
     </form>
     <!-- baseboard -->
@@ -115,9 +201,17 @@
     <!-- result2 -->
     <div>
       <result2 id="result2">
-        <p id="jc">Justino Cobra</p>
-        <p id="vm">Vila Ema</p>
-        <p id="sp">SP</p>
+        <div>
+          <input type="text" value="Justino Cobra" readonly id="logradouro" />
+        </div>
+
+        <div>
+          <input type="text" value="Vila Ema" readonly id="bairro" />
+        </div>
+
+        <div>
+          <input type="text" value="SP" readonly id="localidade" />
+        </div>
       </result2>
     </div>
     <!-- forecast -->
@@ -127,7 +221,13 @@
     </div>
     <!-- temperature -->
     <div id="regiao">
-      <h1>Previsão de tempo de acordo com a região: 24° C</h1>
+      <h1>
+        Previsão de tempo de acordo com a região:<input
+          type="text"
+          value="24°C"
+          id="tempo"
+        />
+      </h1>
     </div>
     <!-- termos deu uso -->
     <div id="termos">
